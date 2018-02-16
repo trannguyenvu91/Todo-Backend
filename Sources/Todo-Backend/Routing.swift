@@ -19,7 +19,6 @@ struct RoutingPath {
     let update = "/api/v1/update"
     let delete = "/api/v1/delete"
     let extendToken = "/api/v1/extendToken"
-    
 }
 
 //MARK: Handlers
@@ -66,7 +65,7 @@ class Routing {
         }
         do {
             let item = try MDDatabase.share.create(item: name, due: due, forToken: token)
-            returnJOSN(message: "success", data: ["items": item.asJSON()], in: response)
+            returnJOSN(message: "success", data: ["item": item.asJSON()], in: response)
         } catch {
             badRequest(response: response, error: error)
         }
@@ -129,7 +128,7 @@ extension Routing {
     }
     
     func returnJOSN(message: String, data: Any?, in response:HTTPResponse) {
-        var body = [String: Any]()
+        var body = JSON()
         body["message"] = message
         if let dataValue = data {
             body["data"] = dataValue

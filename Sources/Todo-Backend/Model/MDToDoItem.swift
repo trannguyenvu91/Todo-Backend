@@ -62,7 +62,7 @@ class MDTodoItem: MySQLStORM {
         })
     }
     
-    func asJSON() -> [String: Any] {
+    func asJSON() -> JSON {
         return ["id": id, "item": item, "due": due, "completed": completed, "associatedUser": associatedUser]
     }
     

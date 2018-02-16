@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias JSON = Dictionary<String, Any>
+
 struct MDConstant {
     
     //MARK: Date time
